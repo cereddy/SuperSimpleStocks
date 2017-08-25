@@ -2,8 +2,7 @@ from datetime import datetime as dt
 from datetime import timedelta as tdelta
 
 class SuperSimpleStocks:
-
-    types = ["common", "preferred"]
+    
     def __init__(self, sampleData={}, histTrade=[]):
         """
         :param sampleData: gathering the data for the Global Beverage Corporation Exchange (of type
