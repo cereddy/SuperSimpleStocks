@@ -20,8 +20,8 @@ class SuperSimpleStocks:
         Given a stock and a market price, returns the dividen yield.
         :param stockSymbol: from those available in sampleData
         :param marketPrice: has to be greater than zero
-        :return: Dividen Yield, which is calculater by one of two formula,
-        depending on the type of the stock (preferred or common)
+        :return: Dividen Yield, which is calculated by one of two formulas,
+        depending on the type of the stock ('preferred' or 'common')
         """
         if(marketPrice == 0):
             raise ValueError("Received zero for marketPrice value. Expecting stricly positive values.")
