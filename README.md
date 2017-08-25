@@ -16,3 +16,4 @@ own prices (for even some of the stocks) they will be used in place.
 # Not handled: 
 - Asynchronous behaviour, for multiple parallel accesses for instance..
 - Data access instead of sample data
+- Multithreading for code performence
