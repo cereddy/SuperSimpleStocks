@@ -16,5 +16,5 @@ own prices (for even some of the stocks) they will be used in place.
 
 - The code does not handle these issues :
   - Asynchronous behaviour (for multiple parallel accesses for instance..),
-  - Data access instead of sample data,
+  - Persistence of data,
   - Multithreading for code performence.
