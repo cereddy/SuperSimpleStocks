@@ -1,5 +1,5 @@
 import unittest
-from generateMockTradeRecord import tradeRecord
+from generateMockTradeRecord import generateRecord
 from generateSampleData import sampleData
 from SuperSimpleStocks import SuperSimpleStocks
 from datetime import datetime as dt
@@ -8,7 +8,7 @@ class TestSuperSimpleStocks(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls._ssStocks = SuperSimpleStocks(sampleData, tradeRecord)
+        cls._ssStocks = SuperSimpleStocks(sampleData, generateRecord())
 
     def test_getDividendYield(self):
         stockSymbol = 'TEA'
