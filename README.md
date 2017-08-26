@@ -12,7 +12,7 @@ An exercice for implementing a simplified stocks manager. Implementation is in P
 
 # Remarks:
 - Sample Data for stocks is stored in the form of a dictionary.
-- Records of the trades are maintained through a list of dictionaries.
+- Records of the trades are stored in a list of dictionaries.
 - When no trades have been recorded for a given stock in the last 15 minutes, an exception is raised.
 When computing the all-share index, the prices a calculated using last 15 minutes trades. If user provides their
 own prices (for even some of the stocks) they will be used in place.
