@@ -2,8 +2,11 @@ from datetime import datetime as dt
 from datetime import timedelta as tdelta
 
 class SuperSimpleStocks:
-
-    types = ["common", "preferred"]
+    """
+    The main class for performing the requested operations..
+    self.sampleData : stocks data, in the form of a dictionary. See file generateSampleData.py for more details
+    self.histTrade  : historic of trades, in the form of a list. See file generateMockTradeRecord.py for more details
+    """
     def __init__(self, sampleData={}, histTrade=[]):
         """
         :param sampleData: gathering the data for the Global Beverage Corporation Exchange (of type
