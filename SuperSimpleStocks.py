@@ -2,7 +2,8 @@ from datetime import datetime as dt
 from datetime import timedelta as tdelta
 
 class SuperSimpleStocks:
-    
+
+    types = ["common", "preferred"]
     def __init__(self, sampleData={}, histTrade=[]):
         """
         :param sampleData: gathering the data for the Global Beverage Corporation Exchange (of type
@@ -20,8 +21,8 @@ class SuperSimpleStocks:
         Given a stock and a market price, returns the dividen yield.
         :param stockSymbol: from those available in sampleData
         :param marketPrice: has to be greater than zero
-        :return: Dividen Yield, which is calculated by one of two formulas,
-        depending on the type of the stock ('preferred' or 'common')
+        :return: Dividen Yield, which is calculater by one of two formula,
+        depending on the type of the stock (preferred or common)
         """
         if(marketPrice == 0):
             raise ValueError("Received zero for marketPrice value. Expecting stricly positive values.")
@@ -40,7 +41,7 @@ class SuperSimpleStocks:
                 raise KeyError("LastDividend could not be found in the data "
                                "for the stock {}".format(stockSymbol))
         elif(type == "preferred"):
-            fixedDividend = stockData.get("fixeDividend", None)
+            fixedDividend = stockData.get("fixedDividend", None)
             parValue = stockData.get("parValue",None)
             if(fixedDividend is None):
                 raise KeyError("Fixed Dividend could not be found in the data "
@@ -49,6 +50,9 @@ class SuperSimpleStocks:
                 raise KeyError("Par Value could not be found in the data for the "
                                "stock {}".format(stockSymbol))
             return fixedDividend * parValue / marketPrice
+        else:
+            raise ValueError("Accepted type is either 'common' of 'preferred'. "
+                             "Data had {}".format(type))
 
     def getPERatio(self, stockSymbol, marketPrice):
         """
@@ -66,6 +70,7 @@ class SuperSimpleStocks:
             raise KeyError("Could not find Last Dividend for the stock {}".format(stockSymbol))
         if(lastDividend == 0):
             print("Last dividend for stock {} is 0. So P/E Ratio is not computed")
+            return None
         else:
             return marketPrice/lastDividend
 
@@ -105,6 +110,7 @@ class SuperSimpleStocks:
               "     ORDER TYPE :   {}\n"
               "     TRADE PRICE :  {}"
               ".".format(newTrade["timestamp"].strftime("%A, %d. %B %Y %I:%M%p"), stockSymbol,order, tradePrice))
+        return newTrade
 
     def computeVWSP(self, stockSymbol):
         """
