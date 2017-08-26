@@ -26,3 +26,4 @@ def generateRecord():
                             'quantityShares': i*60%23}
             tradeRecord.append(newMockTrade)
             newMockTrade = {}
+    return tradeRecord
